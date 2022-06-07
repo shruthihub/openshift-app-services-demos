@@ -1,0 +1,16 @@
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: {{ .Values.sbo.name }}
+
+spec:
+  workload:
+    apiVersion: apps/v1
+    kind: Deployment
+    selector:
+      matchLabels:
+        psql.openshift.io/service-provider: {{ .Values.sbo.serviceprovider }}
+  service:
+    apiVersion: dustbit.com/v1alpha1
+    kind:       PSQLInstance
+    name:       psqlinstance-{{ .Values.sbo.databasename }}

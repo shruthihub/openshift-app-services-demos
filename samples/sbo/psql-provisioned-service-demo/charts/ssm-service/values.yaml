@@ -1,0 +1,46 @@
+# Default values for ssm-service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+k8Project: davptest
+k8Name: ssm-bee
+k8ServiceName: ssm
+location: usa
+
+serviceAccount: sa-with-anyuid
+
+sbo:
+  servicelabels:
+    - name: mydomain/service-type
+      value: myservice
+
+config:
+  cipherOutputFormat: base64
+
+image:
+  name: ssm
+  repository: "quay.io/redhat-certification/"
+  pullPolicy: Always
+  tag: "latest"
+
+
+podSecurityContext: 
+  fsGroup: 2000
+
+securityContext:
+  runAsUser: 1000
+  
+
+service:
+  type: ClusterIP
+  port: 8080
+  sourceRange: 0.0.0.0/0
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
