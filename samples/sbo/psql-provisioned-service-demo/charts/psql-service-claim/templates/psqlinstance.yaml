@@ -1,0 +1,7 @@
+apiVersion: dustbit.com/v1alpha1
+kind: PSQLInstance
+metadata:
+  name: psqlinstance-{{ .Values.sbo.databasename }}
+spec:
+  databasename: {{ .Values.sbo.databasename }}
+  username: {{ .Values.sbo.username }}

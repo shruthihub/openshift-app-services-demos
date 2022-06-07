@@ -1,0 +1,6 @@
+sbo:
+  servicelabels:
+    - name: myservicedomain/service-provider
+      value: mycompany
+    - name: psql.openshift.io/service-provider
+      value: RedHat

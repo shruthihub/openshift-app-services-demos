@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: psql-service-bindings
+  labels:
+    servicebinding.io/controller: "true" # matches the aggregation rule selector
+rules:
+- apiGroups:
+  - dustbit.com
+  resources:
+  - psqlinstances
+  verbs:
+  - get
+  - list
+  - watch
