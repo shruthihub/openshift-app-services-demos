@@ -6,7 +6,7 @@ Example demo built off of [AWS ACK RDS](https://github.com/aws-controllers-k8s/r
 
 ## About
 
-This demo accesses API functionality of [AWS RDS](https://aws.amazon.com/rds/?trk=c0fcea17-fb6a-4c27-ad98-192318a276ff&sc_channel=ps&sc_campaign=acquisition&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Database|Solution|US|EN|Text&s_kwcid=AL!4422!3!548665196304!e!!g!!amazon%20relational%20db&ef_id=EAIaIQobChMIpJKl5a-C9wIVbfHjBx0QYAOwEAAYASABEgJe7PD_BwE:G:s&s_kwcid=AL!4422!3!548665196304!e!!g!!amazon%20relational%20db) using the RDS controller from [Amazon Controllers for Kubernetes](https://github.com/aws-controllers-k8s/community).  Furthermore, this demo utilizes [Service Binding Operator](https://github.com/redhat-developer/service-binding-operator) (SBO) and CR annotations to automatically bind a DBInstance to an example application. 
+This demo accesses API functionality of [AWS RDS](https://aws.amazon.com/rds/?trk=c0fcea17-fb6a-4c27-ad98-192318a276ff&sc_channel=ps&sc_campaign=acquisition&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Database|Solution|US|EN|Text&s_kwcid=AL!4422!3!548665196304!e!!g!!amazon%20relational%20db&ef_id=EAIaIQobChMIpJKl5a-C9wIVbfHjBx0QYAOwEAAYASABEgJe7PD_BwE:G:s&s_kwcid=AL!4422!3!548665196304!e!!g!!amazon%20relational%20db) using the RDS controller from [Amazon Controllers for Kubernetes](https://github.com/aws-controllers-k8s/community).  Furthermore, this demo utilizes [Service Binding Operator](https://github.com/redhat-developer/service-binding-operator) (SBO) and CR annotations to automatically bind a DBInstance to an example application. Since ACK controllers are not yet provisioned services, annotations were used instead. 
 
 ## Setup
 ### AWS ACK RDS
