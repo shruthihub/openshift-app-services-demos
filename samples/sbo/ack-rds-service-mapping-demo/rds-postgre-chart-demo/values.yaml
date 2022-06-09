@@ -1,0 +1,28 @@
+# dbinstance-postgres.yaml
+
+dbinstance:
+  allocatedStorage: 20
+  dbInstanceClass: db.t3.micro
+  engine: postgres
+  engineVersion: 14
+  name: rds-test-demo
+
+# db-cred-helm.yaml
+
+dbcreds:
+  name: rds-database-creds-demo
+  username: #yourusername
+  password: #yourpass
+
+service:
+  type: ClusterIP
+  port: 80
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
