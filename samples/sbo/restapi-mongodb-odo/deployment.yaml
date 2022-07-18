@@ -1,0 +1,205 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    percona.com/last-config-hash: eyJyZXBsaWNhcyI6MSwic2VsZWN0b3IiOnsibWF0Y2hMYWJlbHMiOnsiYXBwLmt1YmVybmV0ZXMuaW8vY29tcG9uZW50IjoibW9uZ29zIiwiYXBwLmt1YmVybmV0ZXMuaW8vaW5zdGFuY2UiOiJtb25nby1jbHVzdGVyMiIsImFwcC5rdWJlcm5ldGVzLmlvL21hbmFnZWQtYnkiOiJwZXJjb25hLXNlcnZlci1tb25nb2RiLW9wZXJhdG9yIiwiYXBwLmt1YmVybmV0ZXMuaW8vbmFtZSI6InBlcmNvbmEtc2VydmVyLW1vbmdvZGIiLCJhcHAua3ViZXJuZXRlcy5pby9wYXJ0LW9mIjoicGVyY29uYS1zZXJ2ZXItbW9uZ29kYiJ9fSwidGVtcGxhdGUiOnsibWV0YWRhdGEiOnsiY3JlYXRpb25UaW1lc3RhbXAiOm51bGwsImxhYmVscyI6eyJhcHAua3ViZXJuZXRlcy5pby9jb21wb25lbnQiOiJtb25nb3MiLCJhcHAua3ViZXJuZXRlcy5pby9pbnN0YW5jZSI6Im1vbmdvLWNsdXN0ZXIyIiwiYXBwLmt1YmVybmV0ZXMuaW8vbWFuYWdlZC1ieSI6InBlcmNvbmEtc2VydmVyLW1vbmdvZGItb3BlcmF0b3IiLCJhcHAua3ViZXJuZXRlcy5pby9uYW1lIjoicGVyY29uYS1zZXJ2ZXItbW9uZ29kYiIsImFwcC5rdWJlcm5ldGVzLmlvL3BhcnQtb2YiOiJwZXJjb25hLXNlcnZlci1tb25nb2RiIn0sImFubm90YXRpb25zIjp7InBlcmNvbmEuY29tL3NzbC1oYXNoIjoiIiwicGVyY29uYS5jb20vc3NsLWludGVybmFsLWhhc2giOiIifX0sInNwZWMiOnsidm9sdW1lcyI6W3sibmFtZSI6Im1vbmdvLWNsdXN0ZXIyLW1vbmdvZGIta2V5ZmlsZSIsInNlY3JldCI6eyJzZWNyZXROYW1lIjoibW9uZ28tY2x1c3RlcjItbW9uZ29kYi1rZXlmaWxlIiwiZGVmYXVsdE1vZGUiOjI4OCwib3B0aW9uYWwiOmZhbHNlfX0seyJuYW1lIjoic3NsIiwic2VjcmV0Ijp7InNlY3JldE5hbWUiOiJtb25nby1jbHVzdGVyMi1zc2wiLCJkZWZhdWx0TW9kZSI6Mjg4LCJvcHRpb25hbCI6dHJ1ZX19LHsibmFtZSI6InNzbC1pbnRlcm5hbCIsInNlY3JldCI6eyJzZWNyZXROYW1lIjoibW9uZ28tY2x1c3RlcjItc3NsLWludGVybmFsIiwiZGVmYXVsdE1vZGUiOjI4OCwib3B0aW9uYWwiOnRydWV9fSx7Im5hbWUiOiJtb25nb2QtZGF0YSIsImVtcHR5RGlyIjp7fX0seyJuYW1lIjoidXNlcnMtc2VjcmV0LWZpbGUiLCJzZWNyZXQiOnsic2VjcmV0TmFtZSI6ImludGVybmFsLW1vbmdvLWNsdXN0ZXIyLXVzZXJzIn19XSwiaW5pdENvbnRhaW5lcnMiOlt7Im5hbWUiOiJtb25nby1pbml0IiwiaW1hZ2UiOiJwZXJjb25hL3BlcmNvbmEtc2VydmVyLW1vbmdvZGItb3BlcmF0b3I6MS4xMS4wIiwiY29tbWFuZCI6WyIvaW5pdC1lbnRyeXBvaW50LnNoIl0sInJlc291cmNlcyI6e30sInZvbHVtZU1vdW50cyI6W3sibmFtZSI6Im1vbmdvZC1kYXRhIiwibW91bnRQYXRoIjoiL2RhdGEvZGIifV0sImltYWdlUHVsbFBvbGljeSI6IkFsd2F5cyJ9XSwiY29udGFpbmVycyI6W3sibmFtZSI6Im1vbmdvcyIsImltYWdlIjoicGVyY29uYS9wZXJjb25hLXNlcnZlci1tb25nb2RiOjQuNC4xMC0xMSIsImNvbW1hbmQiOlsiL2RhdGEvZGIvcHMtZW50cnkuc2giXSwiYXJncyI6WyJtb25nb3MiLCItLWJpbmRfaXBfYWxsIiwiLS1wb3J0PTI3MDE3IiwiLS1zc2xBbGxvd0ludmFsaWRDZXJ0aWZpY2F0ZXMiLCItLWNvbmZpZ2RiIiwiY2ZnL21vbmdvLWNsdXN0ZXIyLWNmZy0wLm1vbmdvLWNsdXN0ZXIyLWNmZy4xc2hydXRoaS5zdmMuY2x1c3Rlci5sb2NhbDoyNzAxNyIsIi0tcmVsYXhQZXJtQ2hlY2tzIiwiLS1jbHVzdGVyQXV0aE1vZGU9a2V5RmlsZSIsIi0ta2V5RmlsZT0vZXRjL21vbmdvZGItc2VjcmV0cy9tb25nb2RiLWtleSJdLCJ3b3JraW5nRGlyIjoiL2RhdGEvZGIiLCJwb3J0cyI6W3sibmFtZSI6Im1vbmdvcyIsImNvbnRhaW5lclBvcnQiOjI3MDE3fV0sImVudkZyb20iOlt7InNlY3JldFJlZiI6eyJuYW1lIjoibW9uZ28tY2x1c3Rlci1zZWNyZXRzIiwib3B0aW9uYWwiOmZhbHNlfX0seyJzZWNyZXRSZWYiOnsibmFtZSI6ImludGVybmFsLW1vbmdvLWNsdXN0ZXIyLXVzZXJzIiwib3B0aW9uYWwiOmZhbHNlfX1dLCJlbnYiOlt7Im5hbWUiOiJNT05HT0RCX1BPUlQiLCJ2YWx1ZSI6IjI3MDE3In1dLCJyZXNvdXJjZXMiOnt9LCJ2b2x1bWVNb3VudHMiOlt7Im5hbWUiOiJtb25nb2QtZGF0YSIsIm1vdW50UGF0aCI6Ii9kYXRhL2RiIn0seyJuYW1lIjoibW9uZ28tY2x1c3RlcjItbW9uZ29kYi1rZXlmaWxlIiwicmVhZE9ubHkiOnRydWUsIm1vdW50UGF0aCI6Ii9ldGMvbW9uZ29kYi1zZWNyZXRzIn0seyJuYW1lIjoic3NsIiwicmVhZE9ubHkiOnRydWUsIm1vdW50UGF0aCI6Ii9ldGMvbW9uZ29kYi1zc2wifSx7Im5hbWUiOiJzc2wtaW50ZXJuYWwiLCJyZWFkT25seSI6dHJ1ZSwibW91bnRQYXRoIjoiL2V0Yy9tb25nb2RiLXNzbC1pbnRlcm5hbCJ9LHsibmFtZSI6InVzZXJzLXNlY3JldC1maWxlIiwicmVhZE9ubHkiOnRydWUsIm1vdW50UGF0aCI6Ii9ldGMvdXNlcnMtc2VjcmV0In1dLCJsaXZlbmVzc1Byb2JlIjp7ImV4ZWMiOnsiY29tbWFuZCI6WyIvZGF0YS9kYi9tb25nb2RiLWhlYWx0aGNoZWNrIiwiazhzIiwibGl2ZW5lc3MiLCItLWNvbXBvbmVudCIsIm1vbmdvcyIsIi0tc3NsIiwiLS1zc2xJbnNlY3VyZSIsIi0tc3NsQ0FGaWxlIiwiL2V0Yy9tb25nb2RiLXNzbC9jYS5jcnQiLCItLXNzbFBFTUtleUZpbGUiLCIvdG1wL3Rscy5wZW0iLCItLXN0YXJ0dXBEZWxheVNlY29uZHMiLCIxMCJdfSwiaW5pdGlhbERlbGF5U2Vjb25kcyI6NjAsInRpbWVvdXRTZWNvbmRzIjoxMCwicGVyaW9kU2Vjb25kcyI6MzAsImZhaWx1cmVUaHJlc2hvbGQiOjR9LCJyZWFkaW5lc3NQcm9iZSI6eyJleGVjIjp7ImNvbW1hbmQiOlsiL2RhdGEvZGIvbW9uZ29kYi1oZWFsdGhjaGVjayIsIms4cyIsInJlYWRpbmVzcyIsIi0tY29tcG9uZW50IiwibW9uZ29zIiwiLS1zc2wiLCItLXNzbEluc2VjdXJlIiwiLS1zc2xDQUZpbGUiLCIvZXRjL21vbmdvZGItc3NsL2NhLmNydCIsIi0tc3NsUEVNS2V5RmlsZSIsIi90bXAvdGxzLnBlbSJdfSwiaW5pdGlhbERlbGF5U2Vjb25kcyI6MTAsInRpbWVvdXRTZWNvbmRzIjoxLCJwZXJpb2RTZWNvbmRzIjoxLCJzdWNjZXNzVGhyZXNob2xkIjoxLCJmYWlsdXJlVGhyZXNob2xkIjozfSwiaW1hZ2VQdWxsUG9saWN5IjoiQWx3YXlzIn1dLCJyZXN0YXJ0UG9saWN5IjoiQWx3YXlzIiwiYWZmaW5pdHkiOnsicG9kQW50aUFmZmluaXR5Ijp7InJlcXVpcmVkRHVyaW5nU2NoZWR1bGluZ0lnbm9yZWREdXJpbmdFeGVjdXRpb24iOlt7ImxhYmVsU2VsZWN0b3IiOnsibWF0Y2hMYWJlbHMiOnsiYXBwLmt1YmVybmV0ZXMuaW8vY29tcG9uZW50IjoibW9uZ29zIiwiYXBwLmt1YmVybmV0ZXMuaW8vaW5zdGFuY2UiOiJtb25nby1jbHVzdGVyMiIsImFwcC5rdWJlcm5ldGVzLmlvL21hbmFnZWQtYnkiOiJwZXJjb25hLXNlcnZlci1tb25nb2RiLW9wZXJhdG9yIiwiYXBwLmt1YmVybmV0ZXMuaW8vbmFtZSI6InBlcmNvbmEtc2VydmVyLW1vbmdvZGIiLCJhcHAua3ViZXJuZXRlcy5pby9wYXJ0LW9mIjoicGVyY29uYS1zZXJ2ZXItbW9uZ29kYiJ9fSwidG9wb2xvZ3lLZXkiOiJrdWJlcm5ldGVzLmlvL2hvc3RuYW1lIn1dfX19fSwic3RyYXRlZ3kiOnsidHlwZSI6IlJvbGxpbmdVcGRhdGUiLCJyb2xsaW5nVXBkYXRlIjp7Im1heFN1cmdlIjowfX19
+  creationTimestamp: "2022-05-31T13:31:39Z"
+  generation: 1
+  name: mongo-cluster2-mongos
+  namespace: 1shruthi
+  ownerReferences:
+  - apiVersion: psmdb.percona.com/v1-11-0
+    controller: true
+    kind: PerconaServerMongoDB
+    name: mongo-cluster2
+    uid: 37993629-4643-4f81-9463-f1b3812650e7
+  resourceVersion: "657585"
+  uid: e6ad9d41-2dd8-4982-bcfd-78f3c9a1b149
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: mongos
+      app.kubernetes.io/instance: mongo-cluster2
+      app.kubernetes.io/managed-by: percona-server-mongodb-operator
+      app.kubernetes.io/name: percona-server-mongodb
+      app.kubernetes.io/part-of: percona-server-mongodb
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        percona.com/ssl-hash: ""
+        percona.com/ssl-internal-hash: ""
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: mongos
+        app.kubernetes.io/instance: mongo-cluster2
+        app.kubernetes.io/managed-by: percona-server-mongodb-operator
+        app.kubernetes.io/name: percona-server-mongodb
+        app.kubernetes.io/part-of: percona-server-mongodb
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/component: mongos
+                app.kubernetes.io/instance: mongo-cluster2
+                app.kubernetes.io/managed-by: percona-server-mongodb-operator
+                app.kubernetes.io/name: percona-server-mongodb
+                app.kubernetes.io/part-of: percona-server-mongodb
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - args:
+        - mongos
+        - --bind_ip_all
+        - --port=27017
+        - --sslAllowInvalidCertificates
+        - --configdb
+        - cfg/mongo-cluster2-cfg-0.mongo-cluster2-cfg.1shruthi.svc.cluster.local:27017
+        - --relaxPermChecks
+        - --clusterAuthMode=keyFile
+        - --keyFile=/etc/mongodb-secrets/mongodb-key
+        command:
+        - /data/db/ps-entry.sh
+        env:
+        - name: MONGODB_PORT
+          value: "27017"
+        envFrom:
+        - secretRef:
+            name: mongo-cluster-secrets
+            optional: false
+        - secretRef:
+            name: internal-mongo-cluster2-users
+            optional: false
+        image: percona/percona-server-mongodb:4.4.10-11
+        imagePullPolicy: Always
+        livenessProbe:
+          exec:
+            command:
+            - /data/db/mongodb-healthcheck
+            - k8s
+            - liveness
+            - --component
+            - mongos
+            - --ssl
+            - --sslInsecure
+            - --sslCAFile
+            - /etc/mongodb-ssl/ca.crt
+            - --sslPEMKeyFile
+            - /tmp/tls.pem
+            - --startupDelaySeconds
+            - "10"
+          failureThreshold: 4
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 10
+        name: mongos
+        ports:
+        - containerPort: 27017
+          name: mongos
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - /data/db/mongodb-healthcheck
+            - k8s
+            - readiness
+            - --component
+            - mongos
+            - --ssl
+            - --sslInsecure
+            - --sslCAFile
+            - /etc/mongodb-ssl/ca.crt
+            - --sslPEMKeyFile
+            - /tmp/tls.pem
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 1
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongod-data
+        - mountPath: /etc/mongodb-secrets
+          name: mongo-cluster2-mongodb-keyfile
+          readOnly: true
+        - mountPath: /etc/mongodb-ssl
+          name: ssl
+          readOnly: true
+        - mountPath: /etc/mongodb-ssl-internal
+          name: ssl-internal
+          readOnly: true
+        - mountPath: /etc/users-secret
+          name: users-secret-file
+          readOnly: true
+        workingDir: /data/db
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - /init-entrypoint.sh
+        image: percona/percona-server-mongodb-operator:1.11.0
+        imagePullPolicy: Always
+        name: mongo-init
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongod-data
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: mongo-cluster2-mongodb-keyfile
+        secret:
+          defaultMode: 288
+          optional: false
+          secretName: mongo-cluster2-mongodb-keyfile
+      - name: ssl
+        secret:
+          defaultMode: 288
+          optional: true
+          secretName: mongo-cluster2-ssl
+      - name: ssl-internal
+        secret:
+          defaultMode: 288
+          optional: true
+          secretName: mongo-cluster2-ssl-internal
+      - emptyDir: {}
+        name: mongod-data
+      - name: users-secret-file
+        secret:
+          defaultMode: 420
+          secretName: internal-mongo-cluster2-users
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2022-05-31T13:31:39Z"
+    lastUpdateTime: "2022-05-31T13:31:39Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2022-05-31T13:31:39Z"
+    lastUpdateTime: "2022-05-31T13:32:04Z"
+    message: ReplicaSet "mongo-cluster2-mongos-665c957fb4" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
