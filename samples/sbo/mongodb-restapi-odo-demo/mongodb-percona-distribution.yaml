@@ -1,0 +1,21 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: percona-server-mongodb-operator
+  namespace: mongodb-restapi
+spec:
+  name: percona-server-mongodb-operator
+  source: community-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: percona-server-mongodb-operator.v1.11.0
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: operatorgroup
+  namespace: mongodb-restapi
+spec:
+  targetNamespaces:
+  - mongodb-restapi
+
+
